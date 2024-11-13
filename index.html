@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Parking Management System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Parking Management System</h1>
+    </header>
+
+    <div class="container">
+      <div class="vehicle-management">
+        <h2>Vehicle Management</h2>
+        <div class="input-group">
+          <input type="text" id="vehicleType" placeholder="Vehicle Type" />
+          <input type="text" id="vehicleNumber" placeholder="Vehicle Number" />
+          <button onclick="addVehicle()">Add Vehicle</button>
+        </div>
+        <div class="input-group">
+          <input
+            type="text"
+            id="removeIdentifier"
+            placeholder="Slot ID or Vehicle Number"
+          />
+          <button onclick="removeVehicleByIdentifier()">Remove Vehicle</button>
+        </div>
+        <div class="input-group">
+          <input
+            type="number"
+            id="totalSlots"
+            placeholder="Total Slots"
+            value="20"
+          />
+          <button onclick="setTotalSlots()">Set Slots</button>
+        </div>
+      </div>
+
+      <div class="dashboard">
+        <h2>Parking Availability</h2>
+        <div class="parking-stats">
+          <p>Total Spots: <span id="totalSpots">20</span></p>
+          <p>Available Spots: <span id="availableSpots">20</span></p>
+          <p>Occupied Spots: <span id="occupiedSpots">0</span></p>
+        </div>
+        <div class="parking-grid" id="parkingGrid"></div>
+        <div class="search-container">
+          <input
+            type="text"
+            id="vehicleSearchInput"
+            placeholder="Search vehicle..."
+            oninput="searchVehicle()"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="customAlert" class="custom-alert">
+      <div class="alert-content">
+        <div class="alert-header">
+          <span id="alertTitle" class="alert-title">Alert</span>
+          <button class="close-btn" onclick="closeCustomAlert()">×</button>
+        </div>
+        <div id="alertMessage" class="alert-message">
+          This is a custom alert message.
+        </div>
+        <div class="alert-footer">
+          <button class="alert-ok-btn" onclick="closeCustomAlert()">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
